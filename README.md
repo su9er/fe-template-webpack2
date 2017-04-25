@@ -49,59 +49,61 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 ## Project directory
 ```shell
-|——build
-|  |——build.js // 生产环境构建
-|  |——check-version.js // node&npm版本检测
-|  |——dev-client.js // 开发环境引入hot-reload
-|  |——dev-server.js // 开发环境构建
-|  |——debug-build.js // 测试环境构建
-|  |——entry.js // 获取入口列表
-|  |——htmlList.js // 获取HtmlWebpackPlugin列表
-|  |——utils.js // css相关loader引入工具函数
-|  |——vue-loader.conf.js // css-loader引入
-|  |——webpack.base.conf.js // webpack基础配置
-|  |——webpack.dev.conf.js // webpack(demo/dev环境)配置
-|  +——webpack.prod.conf.js // webpack(debug/build环境)配置
-|——config // 环境参数定义
-|——entry // 多入口文件
-|——mock // json-server模拟数据
-|——node_modules
-|——src
-|  |——asserts
-|  |  |——css
-|  |  |  |——bootstrap-v4 // bootstrap-v4 scss UI框架
-|  |  |  |——bulma // flex sass UI框架
-|  |  |  |——lib // scss基础工具库
-|  |  |  |  +——sasscore // sasscore工具库(包括基础的css3、栅格布局、媒体查询、样式重置)
-|  |  |  |——theme // element——ui定制主题
-|  |  |  |——_nprogress.scss // 加载进度条样式
-|  |  |  |——_variable.scss // 定义UI样式变量值
-|  |  |  |——_xxx_icon.scss // 合并雪碧图生成的定位映射文件
-|  |  |  +——ui.scss // UI框架调用入口文件
-|  |  |——img
-|  |  +——sprites // 雪碧图资源(合并雪碧图,资源映射复制到css目录下) 1. 可在此目录下放图片,生成app_icon.png 2. 可在此目录下以文件夹为单位合并雪碧图,生成foldername_icon.png
-|  |——components // 公共组件(来自其他git仓库)
-|  |——directives // 自定义指令
-|  |——filters // 过滤函数
-|  |——pages // 多入口模板
-|  |——router // 路由文件
-|  |——services // api
-|  |——utils // 公共函数
-|  |——views // 页面组件
-|  +——vuex // 统一状态管理
-|     |——modules // vuex数据定义
-|     +——store // vuex store初始化
-|——staic // 静态文件生成目录
-|——gulpfile.js // 公共scss编译(scss)、雪碧图合并(sprites)、图片压缩(img)
-+——package.json // gulp、dev、test、build打包入口,项目说明,模块依赖
+├──build
+|  ├──build.js // 生产环境构建
+|  ├──check-version.js // node&npm版本检测
+|  ├──dev-client.js // 开发环境引入hot-reload
+|  ├──dev-server.js // 开发环境构建
+|  ├──debug-build.js // 测试环境构建
+|  ├──entry.js // 获取入口列表
+|  ├──htmlList.js // 获取HtmlWebpackPlugin列表
+|  ├──utils.js // css相关loader引入工具函数
+|  ├──vue-loader.conf.js // css-loader引入
+|  ├──webpack.base.conf.js // webpack基础配置
+|  ├──webpack.dev.conf.js // webpack(demo/dev环境)配置
+|  └──webpack.prod.conf.js // webpack(debug/build环境)配置
+├──config // 环境参数定义
+├──entry // 多入口文件
+├──mock // json-server模拟数据
+├──node_modules
+├──src
+|  ├──asserts
+|  |  ├──css
+|  |  |  ├──bootstrap-v4 // bootstrap-v4 scss UI框架
+|  |  |  ├──bulma // flex sass UI框架
+|  |  |  ├──lib // scss基础工具库
+|  |  |  |  └──sasscore // sasscore工具库(包括基础的css3、栅格布局、媒体查询、样式重置)
+|  |  |  ├──theme // element——ui定制主题
+|  |  |  ├──_nprogress.scss // 加载进度条样式
+|  |  |  ├──_variable.scss // 定义UI样式变量值
+|  |  |  ├──_xxx_icon.scss // 合并雪碧图生成的定位映射文件
+|  |  |  └──ui.scss // UI框架调用入口文件
+|  |  ├──img
+|  |  └──sprites // 雪碧图资源(合并雪碧图,资源映射复制到css目录下) 1. 可在此目录下放图片,生成app_icon.png 2. 可在此目录下以文件夹为单位合并雪碧图,生成foldername_icon.png
+|  ├──components // 公共组件(来自其他git仓库)
+|  ├──directives // 自定义指令
+|  ├──filters // 过滤函数
+|  ├──pages // 多入口模板
+|  ├──router // 路由文件
+|  ├──services // api
+|  ├──utils // 公共函数
+|  ├──views // 页面组件
+|  └──vuex // 统一状态管理
+|     ├──modules // vuex数据定义
+|     └──store // vuex store初始化
+├──staic // 静态文件生成目录
+├──test // 测试文件目录
+├──third_party // 第三方模块目录
+├──gulpfile.js // 公共scss编译(scss)、雪碧图合并(sprites)、图片压缩(img)
+└──package.json // gulp、dev、test、build打包入口,项目说明,模块依赖
 ```
 
 # dev structure
 ``` shell
-+——fe&be-Project
-    |——be // (后端git拉取目录,名字固定)
-    |   +——staticRoot
-    |       |——dist // 生产环境静态文件目录
-    |       +——public // 开发环境静态文件目录
-    +——fe // (前端git拉取目录,名字可自定义)
+└──fe&be-Project
+    ├──be // (后端git拉取目录,名字固定)
+    |   └──staticRoot
+    |       ├──dist // 生产环境静态文件目录
+    |       └──public // 开发环境静态文件目录
+    └──fe // (前端git拉取目录,名字可自定义)
 ```

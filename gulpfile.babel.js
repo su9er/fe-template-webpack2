@@ -1,7 +1,7 @@
 /**
  * Created by su9er on 17/3/25.
  */
-
+require('shelljs')
 import fs from 'fs'
 import path from 'path'
 import gulp from 'gulp'
@@ -103,4 +103,12 @@ gulp.task('img', () => {
     .pipe(gulp.dest(path.join(__dirname, 'static/img/')))
 })
 
-gulp.task('default', ['sprites', 'scss', 'img']);
+/*
+ * 复制第三方模块到static目录
+ * */
+gulp.task('copy', () => {
+  rm('-rf', 'static/*')
+  cp('-R', 'third_party/*', 'static/third_party/')
+})
+
+gulp.task('default', ['sprites', 'scss', 'img', 'copy']);``
